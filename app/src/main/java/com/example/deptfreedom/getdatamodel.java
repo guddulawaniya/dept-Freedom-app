@@ -2,6 +2,12 @@ package com.example.deptfreedom;
 
 public class getdatamodel {
 
+
+    public getdatamodel()
+    {
+
+    }
+
     String deptname,sbalance,mpayment,apr,category,paydate,remdate,setMesaageId;
 
     public getdatamodel(String deptname, String sbalance, String mpayment, String apr, String category, String paydate, String remdate) {

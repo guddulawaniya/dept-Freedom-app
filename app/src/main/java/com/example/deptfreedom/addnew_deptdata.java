@@ -24,10 +24,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.example.deptfreedom.databinding.ActivityAddnewDeptdataBinding;
-import com.google.android.gms.tasks.OnSuccessListener;
+import com.firebase.ui.database.FirebaseRecyclerOptions;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -51,7 +50,8 @@ public class addnew_deptdata extends AppCompatActivity {
     ImageView menuimage;
     TextView useremailid;
     ProgressDialog Loading;
-    String userchildid;
+    String userchildid ="1";
+    AutoCompleteTextView currencySysmbolDropdown;
     Button close;
     setdataAdapter adapter;
     Button okay ;
@@ -66,6 +66,12 @@ public class addnew_deptdata extends AppCompatActivity {
     String[] categories = {"Credit Card", "Auto Loan", "Student Loan", "Medicine Loan", "Mortgage", "Personal Loan", "TAXES", "Utilites anad Bills", "Overdraft", "Others"};
     String[] reminder = {"5 days life", "10 days life", "15 days life", "20 days life", "25 days life", "30 days life"};
     String[] dept_details = new String[]{"APR High to Low (avalanche)","APR Low to High (avalanche)"};
+    String[] currency_symbols = {
+            "$",
+            "₹",
+            "£",
+    };
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -96,13 +102,14 @@ public class addnew_deptdata extends AppCompatActivity {
                 hiddenView3 = findViewById(R.id.hidden_view3),hiddenView4 = findViewById(R.id.hidden_view4);
 
         list = new ArrayList<>();
-        list.add(new getdatamodel("bill","500","50","3","student","02/06/2022","04/02/2020"));
-        userchildid = binding.name.getText().toString() + binding.sbalance.getText().toString() +
-                binding.mpayment.getText().toString() + binding.apr.getText().toString();
+        //list.add(new getdatamodel("bill","500","50","3","student","02/06/2022","04/02/2020"));
+
+
 
 
 
         EditText name = findViewById(R.id.name);
+        currencySysmbolDropdown = findViewById(R.id.actv_currencySymbol);
         EditText sbalance = findViewById(R.id.sbalance);
         EditText mpayment = findViewById(R.id.mpayment);
         EditText apr = findViewById(R.id.apr);
@@ -120,7 +127,7 @@ public class addnew_deptdata extends AppCompatActivity {
                 finish();
             }
         });
-//        mDatabase.child("Users data").child(FirebaseAuth.getInstance().getUid()).child(userchildid).addValueEventListener(new ValueEventListener() {
+//        mDatabase.child("Users").child(FirebaseAuth.getInstance().getUid()).addValueEventListener(new ValueEventListener() {
 //            @Override
 //            public void onDataChange(@NonNull DataSnapshot snapshot) {
 //                for (DataSnapshot snapshot1: snapshot.getChildren())
@@ -163,8 +170,13 @@ public class addnew_deptdata extends AppCompatActivity {
 
         deptnamerecyclerView = findViewById(R.id.deptnamerecyclerview);
         deptnamerecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        adapter = new setdataAdapter(list,this);
+        FirebaseRecyclerOptions<getdatamodel> list = new  FirebaseRecyclerOptions.Builder<getdatamodel>().setQuery(FirebaseDatabase.getInstance()
+                .getReference().child("Users data").child(FirebaseAuth.getInstance().getUid()),getdatamodel.class).build();
+
+        adapter= new setdataAdapter(list);
         deptnamerecyclerView.setAdapter(adapter);
+//        adapter = new setdataAdapter(list,this);
+//        deptnamerecyclerView.setAdapter(adapter);
 
 
         //drop down sets
@@ -176,6 +188,9 @@ public class addnew_deptdata extends AppCompatActivity {
 
         ArrayAdapter<String> reminderAdapter = new ArrayAdapter(addnew_deptdata.this, R.layout.list_item, reminder);
         reninderDropDown.setAdapter(reminderAdapter);
+
+        ArrayAdapter<String> adapter = new ArrayAdapter(addnew_deptdata.this, R.layout.list_item, currency_symbols);
+        currencySysmbolDropdown.setAdapter(adapter);
 
 
         // drop down functions
@@ -354,9 +369,7 @@ public class addnew_deptdata extends AppCompatActivity {
 
                         // data post to server Firebase from user input
 
-                        writeNewUser(FirebaseAuth.getInstance().getUid(),
-                                name.getText().toString(), sbalance.getText().toString(),
-                                mpayment.getText().toString(), apr.getText().toString(),
+                        writeNewUser(name.getText().toString(), sbalance.getText().toString(), mpayment.getText().toString(), apr.getText().toString(),
                                 category.getText().toString(), paydate.getText().toString(), remdate.getText().toString());
                         dialog.show();
 
@@ -402,17 +415,14 @@ public class addnew_deptdata extends AppCompatActivity {
 
     }
 
-    public void writeNewUser(String userId, String name, String sbalance, String mpayment, String apr, String category, String paydate, String remdate) {
+    public void writeNewUser(String name, String sbalance, String mpayment, String apr, String category, String paydate, String remdate) {
         getdatamodel user = new getdatamodel(name, sbalance, mpayment, apr, category, paydate, remdate);
+//        userchildid = name+ sbalance +mpayment+apr;
+        String userId = FirebaseAuth.getInstance().getUid();
 
+        mDatabase.child("Users data").child(userId).child(userchildid).setValue(user);
+        userchildid = userchildid+1;
 
-        mDatabase.child("Users data").child(userId).child(userchildid).setValue(user).addOnSuccessListener(new OnSuccessListener<Void>() {
-            @Override
-            public void onSuccess(Void unused) {
-                Toast.makeText(addnew_deptdata.this, "data insert successfully", Toast.LENGTH_SHORT).show();
-
-            }
-        });
     }
 
     public void displayAlertbox() {
@@ -422,5 +432,16 @@ public class addnew_deptdata extends AppCompatActivity {
         dialogalesrt.setNegativeButton("ok", null);
         dialogalesrt.show();
 
+    }
+
+    protected void onStart() {
+        super.onStart();
+        adapter.startListening();
+    }
+
+    @Override
+    protected void onStop() {
+        super.onStop();
+        adapter.stopListening();
     }
 }
