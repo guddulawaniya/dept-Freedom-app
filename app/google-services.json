@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "600655143007",
+    "project_id": "deptfreedom",
+    "storage_bucket": "deptfreedom.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:600655143007:android:fcf01dd0b000bd3afabbea",
+        "android_client_info": {
+          "package_name": "com.example.deptfreedom"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "600655143007-msc99vre78b7m3tb5u1n3q1s6vj6e0h8.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmNC11yGvjuPuCFdS9_XOwt0vP6eRpCVo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "600655143007-msc99vre78b7m3tb5u1n3q1s6vj6e0h8.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

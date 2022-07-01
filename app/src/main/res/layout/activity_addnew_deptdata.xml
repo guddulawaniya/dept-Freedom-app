@@ -1,0 +1,718 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/background"
+    android:layout_height="match_parent"
+    tools:context=".addnew_deptdata">
+
+    <include layout="@layout/toolbar"/>
+
+    <androidx.drawerlayout.widget.DrawerLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:openDrawer="end"
+        android:id="@+id/drawer">
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                tools:context=".addnew_deptdata"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:gravity="center"
+                        android:layout_marginTop="20dp"
+                        android:weightSum="7"
+                        tools:ignore="Suspicious0dp">
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="4"
+                            android:paddingStart="25dp"
+
+                            android:text="New Debts"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="24sp"
+                            android:textStyle="bold" />
+
+                        <Button
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:layout_marginEnd="6dp"
+                            android:text="Cancel"
+                            android:textColor="@color/white"
+                            android:textSize="9sp" />
+
+                        <Button
+                            android:id="@+id/savebtn"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1.5"
+                            android:layout_marginEnd="8dp"
+                            android:text="Save"
+                            android:textColor="@color/white"
+                            android:textSize="9sp" />
+
+                    </LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="15dp"
+                        android:background="#17D540"
+                        android:orientation="horizontal">
+
+
+                        <ImageButton
+                            android:id="@+id/arrow_debtDetails"
+                            android:layout_width="0dp"
+                            android:layout_height="match_parent"
+                            android:layout_weight="1"
+                            android:paddingStart="8dp"
+                            app:srcCompat="@drawable/down_arrow" />
+
+                        <TextView
+                            android:id="@+id/textView4"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="8"
+                            android:paddingTop="10dp"
+                            android:paddingBottom="10dp"
+                            android:text="DEBT DETAILS"
+                            android:textColor="@color/colorWhite"
+                            android:textSize="14sp"
+                            android:textStyle="bold"
+
+                            />
+                    </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/hiddenView_debtDetails"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical"
+                        android:visibility="visible">
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:orientation="horizontal"
+                            android:weightSum="9">
+
+                            <TextView
+                                android:id="@+id/tvName"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:paddingStart="10dp"
+                                android:paddingTop="5dp"
+                                android:text="Name"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:background="@drawable/inputround"
+
+                                >
+
+                                <ImageView
+                                    android:id="@+id/iv_email"
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:paddingLeft="2dp"
+                                    android:paddingTop="6dp"
+                                    android:src="@drawable/useravtar" />
+
+                                <EditText
+
+                                    android:id="@+id/name"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/inputround"
+                                    android:ems="10"
+                                    android:hint="e.g.Visa 09000-XX_"
+                                    android:inputType="textEmailAddress"
+                                    android:padding="8dp"
+                                    android:textColor="#201919"
+                                    android:textColorHint="#9E9797"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal"
+                            android:weightSum="9">
+
+                            <TextView
+                                android:id="@+id/tvStartingBalance"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:paddingStart="10dp"
+                                android:text="Starting Balance"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:background="@drawable/inputround"
+
+                                >
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:paddingLeft="8dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingRight="4dp"
+                                    android:src="@drawable/useravtar"
+                                    android:text="£"
+
+                                    android:textColor="@android:color/holo_red_light"
+                                    android:textSize="17dp" />
+
+                                <EditText
+
+                                    android:id="@+id/sbalance"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/inputround"
+                                    android:ems="10"
+                                    android:hint="e.g. 1234_"
+                                    android:inputType="number"
+                                    android:padding="8dp"
+                                    android:textColor="#201919"
+                                    android:textColorHint="#9E9797"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal"
+                            android:weightSum="9">
+
+                            <TextView
+                                android:id="@+id/tvMinimumPayment"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:paddingStart="10dp"
+                                android:text="Minimum Payment"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:background="@drawable/inputround"
+
+                                >
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:paddingLeft="8dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingRight="4dp"
+                                    android:src="@drawable/useravtar"
+                                    android:text="£"
+
+                                    android:textColor="@android:color/holo_red_light"
+                                    android:textSize="17dp" />
+
+                                <EditText
+
+                                    android:id="@+id/mpayment"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/inputround"
+                                    android:ems="10"
+                                    android:hint="e.g. 1234_"
+                                    android:inputType="number"
+                                    android:padding="8dp"
+                                    android:textColor="#201919"
+                                    android:textColorHint="#9E9797"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_marginBottom="20dp"
+                            android:orientation="horizontal"
+                            android:weightSum="9">
+
+                            <TextView
+                                android:id="@+id/tvAPR"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:paddingStart="10dp"
+                                android:text="APR"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:background="@drawable/inputround"
+
+                                >
+
+                                <TextView
+
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:layout_centerVertical="true"
+                                    android:paddingLeft="8dp"
+                                    android:paddingTop="6dp"
+                                    android:paddingRight="4dp"
+                                    android:src="@drawable/useravtar"
+                                    android:text="%"
+                                    android:textColor="#6E6767"
+                                    android:textColorHint="#534B4B"
+                                    android:textSize="17dp" />
+
+                                <EditText
+
+                                    android:id="@+id/apr"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/inputround"
+                                    android:ems="10"
+                                    android:hint="e.g. 100%_"
+                                    android:inputType="number"
+                                    android:padding="8dp"
+                                    android:textColor="#201919"
+                                    android:textColorHint="#9E9797"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:background="#F8F7F7"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/textView8"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:gravity="center"
+                                android:padding="10dp"
+                                android:text="OPTIONAL"
+                                android:textColor="#17D540"
+                                android:textSize="16sp"
+                                android:textStyle="bold" />
+                        </LinearLayout>
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal"
+                            android:weightSum="9">
+
+                            <TextView
+                                android:id="@+id/tvCategory"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:paddingStart="10dp"
+                                android:text="Category"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="14sp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                                android:layout_width="0dp"
+                                android:layout_height="30dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_weight="4"
+                                android:background="@drawable/inputround"
+
+                                android:weightSum="1">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/category"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/inputround"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="0dp"
+                                    android:text="select Card"
+                                    android:paddingBottom="0dp"
+                                    android:textColor="#201919"
+                                    android:textColorHint="#9E9797"
+                                    android:textSize="14sp" />
+
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal"
+                            android:weightSum="9">
+
+                            <TextView
+                                android:id="@+id/tvPaymentDate"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:paddingStart="10dp"
+                                android:text="Payment Date"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="14sp" />
+
+                            <LinearLayout
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:background="@drawable/inputround"
+
+                                >
+
+
+                                <TextView
+
+                                    android:id="@+id/paydate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/inputround"
+                                    android:ems="10"
+                                    android:hint="TypeDate:00/00/0000"
+                                    android:inputType="date"
+                                    android:padding="8dp"
+                                    android:textColor="#201919"
+                                    android:textColorHint="#9E9797"
+                                    android:textSize="14sp" />
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal"
+                            android:weightSum="9">
+
+                            <TextView
+                                android:id="@+id/tvPaymentReminder"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="4"
+                                android:paddingStart="10dp"
+                                android:text="Payment Reminder"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="14sp" />
+
+                            <com.google.android.material.textfield.TextInputLayout
+                                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.ExposedDropdownMenu"
+                                android:layout_width="0dp"
+                                android:layout_height="30dp"
+                                android:layout_marginTop="7dp"
+                                android:layout_weight="4"
+                                android:background="@drawable/inputround"
+
+                                android:weightSum="1">
+
+                                <AutoCompleteTextView
+                                    android:id="@+id/remdate"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@drawable/inputround"
+                                    android:paddingStart="10dp"
+                                    android:paddingTop="0dp"
+                                    android:text="select date"
+                                    android:paddingBottom="0dp"
+                                    android:textColor="#201919"
+                                    android:textColorHint="#9E9797"
+                                    android:textSize="14sp" />
+
+
+                            </com.google.android.material.textfield.TextInputLayout>
+
+
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:orientation="horizontal">
+
+                            <CheckBox
+                                android:id="@+id/checkBox"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_weight="1"
+                                android:text="Promotional APR"
+                                android:textColor="@color/colorWhite"
+                                android:textSize="16sp" />
+                        </LinearLayout>
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical">
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:background="@drawable/box_heading"
+                                    android:orientation="horizontal">
+
+                                    <TextView
+
+                                        android:id="@+id/setname"
+                                        android:layout_width="0dp"
+                                        android:layout_height="wrap_content"
+                                        android:layout_weight="1"
+                                        android:gravity="center"
+                                        android:text="Debts-Free"
+                                        android:textColor="@color/colorWhite"
+                                        android:textSize="16sp"
+                                        android:textStyle="bold" />
+                                </LinearLayout>
+
+                            </LinearLayout>
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:gravity="center_horizontal"
+                                android:orientation="horizontal"
+                                android:weightSum="3">
+
+                                <LinearLayout
+                                    android:layout_width="0dp"
+                                    android:layout_height="wrap_content"
+                                    android:layout_weight="2"
+                                    android:background="@drawable/box_content"
+                                    android:orientation="horizontal"
+                                    android:paddingTop="10dp"
+                                    android:paddingBottom="10dp">
+
+                                    <LinearLayout
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="horizontal">
+
+                                        <ImageView
+
+                                            android:layout_width="match_parent"
+                                            android:layout_height="48dp"
+                                            android:layout_weight="1"
+                                            app:srcCompat="@drawable/calender_icon" />
+                                    </LinearLayout>
+
+                                    <LinearLayout
+
+                                        android:layout_width="match_parent"
+                                        android:layout_height="match_parent"
+                                        android:layout_weight="1"
+                                        android:orientation="vertical">
+
+                                        <TextView
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="Nov.2040"
+                                            android:textColor="#17D540"
+                                            android:textSize="16sp" />
+
+                                        <TextView
+
+                                            android:layout_width="match_parent"
+                                            android:layout_height="wrap_content"
+                                            android:text="10 Years, 3 Months"
+                                            android:textSize="12sp" />
+                                    </LinearLayout>
+
+                                </LinearLayout>
+                            </LinearLayout>
+
+                        </LinearLayout>
+
+
+                    </LinearLayout>
+                </LinearLayout>
+
+
+
+
+
+
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:background="#17D540"
+                    android:orientation="horizontal"
+                    android:weightSum="6">
+
+
+                    <TextView
+                        android:id="@+id/tv_debts"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="5"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Debts"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                    <ImageButton
+                        android:layout_width="0dp"
+                        android:id="@+id/deptnames"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:paddingRight="8dp"
+                        app:srcCompat="@drawable/add_sign_icon" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:layout_width="match_parent"
+                        android:id="@+id/deptnamerecyclerview"
+                        android:layout_height="match_parent">
+
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                </LinearLayout>
+
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="15dp"
+                    android:background="#17D540"
+                    android:orientation="horizontal"
+                    android:weightSum="6">
+
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="6"
+                        android:gravity="center"
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp"
+                        android:text="Payoff Plan"
+                        android:textColor="@color/colorWhite"
+                        android:textSize="14sp"
+                        android:textStyle="bold" />
+
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+                    <include layout="@layout/payoff_plan_list"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <include layout="@layout/strategy"/>
+
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <include layout="@layout/dept_payment_method"/>
+
+                </LinearLayout>   <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <include layout="@layout/payoff_summery"/>
+
+            </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+
+
+        <com.google.android.material.navigation.NavigationView
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:id="@+id/navmenu"
+            android:layout_gravity="right">
+
+            <include layout="@layout/card_view"/>
+
+        </com.google.android.material.navigation.NavigationView>
+
+    </androidx.drawerlayout.widget.DrawerLayout>
+
+</LinearLayout>
