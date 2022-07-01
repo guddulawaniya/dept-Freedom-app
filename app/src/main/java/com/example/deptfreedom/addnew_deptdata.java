@@ -22,6 +22,7 @@ import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
 
@@ -41,6 +42,9 @@ import java.util.Locale;
 
 public class addnew_deptdata extends AppCompatActivity {
 
+
+
+    private int currentprogress = 1;
     ImageButton arrow_debtDetails;
     DatabaseReference mDatabase;
     AutoCompleteTextView actv_categoryDropdown,reninderDropDown;
@@ -55,6 +59,7 @@ public class addnew_deptdata extends AppCompatActivity {
     Button close;
     setdataAdapter adapter;
     Button okay ;
+    ProgressBar progressBar;
     ArrayList<getdatamodel> list;
     RecyclerView deptnamerecyclerView;
     ImageButton arrow,arrow2,arrow3,arrow4;
@@ -64,7 +69,7 @@ public class addnew_deptdata extends AppCompatActivity {
     // Syntax of declaration of variable
     final Calendar myCalendar = Calendar.getInstance();
     String[] categories = {"Credit Card", "Auto Loan", "Student Loan", "Medicine Loan", "Mortgage", "Personal Loan", "TAXES", "Utilites anad Bills", "Overdraft", "Others"};
-    String[] reminder = {"5 days life", "10 days life", "15 days life", "20 days life", "25 days life", "30 days life"};
+    String[] reminder = {"5 days ", "10 days ", "15 days ", "20 days ", "25 days ", "30 days "};
     String[] dept_details = new String[]{"APR High to Low (avalanche)","APR Low to High (avalanche)"};
     String[] currency_symbols = {
             "$",
@@ -95,6 +100,7 @@ public class addnew_deptdata extends AppCompatActivity {
         arrow = findViewById(R.id.arrow_button);
         arrow2 = findViewById(R.id.arrow_button2);
         close = findViewById(R.id.close);
+        progressBar = findViewById(R.id.progressBar);
         arrow3 = findViewById(R.id.arrow_button3);
         arrow4 = findViewById(R.id.arrow_button4);
         Button logout = findViewById(R.id.logout);
@@ -118,6 +124,7 @@ public class addnew_deptdata extends AppCompatActivity {
         EditText remdate = findViewById(R.id.remdate);
         useremailid = findViewById(R.id.useremail_id);
         hiddenView_debtDetails.setVisibility(View.VISIBLE);
+
 
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -205,6 +212,15 @@ public class addnew_deptdata extends AppCompatActivity {
         okay.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
+                sbalance.setText("");
+                apr.setText("");
+                mpayment.setText("");
+                category.setText("");
+                remdate.setText("");
+                paydate.setText("");
+                name.setText("");
+                name.requestFocus();
                 dialog.dismiss();
 
             }

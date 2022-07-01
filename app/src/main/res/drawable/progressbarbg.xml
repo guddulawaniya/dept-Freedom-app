@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:id="@+id/bacground">
+
+        <shape android:shape="rectangle">
+            <corners
+                android:radius="4dp"/>
+            <solid
+                android:color="#FF9800"/>
+        </shape>
+    </item>
+
+    <item>
+        <scale android:scaleWidth="100%">
+
+            <shape android:shape="rectangle">
+                <corners android:radius="4dp"/>
+                <solid android:color="#229727"/>
+            </shape>
+        </scale>
+    </item>
+</layer-list>

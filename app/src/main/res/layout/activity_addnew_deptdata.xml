@@ -209,7 +209,8 @@
                                     android:ems="10"
                                     android:hint="e.g. 1234_"
                                     android:inputType="number"
-                                    android:padding="8dp"
+                                    android:padding="10dp"
+                                    android:maxLength="8"
                                     android:textColor="#201919"
                                     android:textColorHint="#9E9797"
                                     android:textSize="14sp" />
@@ -265,6 +266,7 @@
                                     android:hint="e.g. 1234_"
                                     android:inputType="number"
                                     android:padding="8dp"
+                                    android:maxLength="8"
                                     android:textColor="#201919"
                                     android:textColorHint="#9E9797"
                                     android:textSize="14sp" />
@@ -321,6 +323,7 @@
                                     android:hint="e.g. 100%_"
                                     android:inputType="number"
                                     android:padding="8dp"
+                                    android:maxLength="3"
                                     android:textColor="#201919"
                                     android:textColorHint="#9E9797"
                                     android:textSize="14sp" />
