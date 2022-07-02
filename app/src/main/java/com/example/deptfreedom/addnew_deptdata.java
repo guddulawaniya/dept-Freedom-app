@@ -11,6 +11,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -44,14 +45,14 @@ public class addnew_deptdata extends AppCompatActivity {
 
 
 
-    private int currentprogress = 1;
+
     ImageButton arrow_debtDetails;
     DatabaseReference mDatabase;
     AutoCompleteTextView actv_categoryDropdown,reninderDropDown;
     DrawerLayout drawerLayout;
     Dialog dialog;
     Spinner selectpayofforder;
-    ImageView menuimage;
+    ImageView menuimage,arrow_deptbutton;
     TextView useremailid;
     ProgressDialog Loading;
     String userchildid ="1";
@@ -64,7 +65,7 @@ public class addnew_deptdata extends AppCompatActivity {
     RecyclerView deptnamerecyclerView;
     ImageButton arrow,arrow2,arrow3,arrow4;
     ImageView strategyplusbutton;
-    LinearLayout hiddenView,hiddenView2,hiddenView4,hiddenView3,hiddenView_debtDetails;
+    LinearLayout hiddenView,hiddenView2,hiddenView4,hiddenView3,hiddenView_debtDetails,depthiddenlinear;
     ActivityAddnewDeptdataBinding binding;
     // Syntax of declaration of variable
     final Calendar myCalendar = Calendar.getInstance();
@@ -97,6 +98,7 @@ public class addnew_deptdata extends AppCompatActivity {
         drawerLayout = findViewById(R.id.drawer);
         menuimage = findViewById(R.id.Menu);
         hiddenView_debtDetails = findViewById(R.id.hiddenView_debtDetails);
+        depthiddenlinear = findViewById(R.id.depthiddenlinear);
         arrow = findViewById(R.id.arrow_button);
         arrow2 = findViewById(R.id.arrow_button2);
         close = findViewById(R.id.close);
@@ -111,6 +113,7 @@ public class addnew_deptdata extends AppCompatActivity {
         //list.add(new getdatamodel("bill","500","50","3","student","02/06/2022","04/02/2020"));
 
 
+        depthiddenlinear.setVisibility(View.VISIBLE);
 
 
 
@@ -332,6 +335,25 @@ public class addnew_deptdata extends AppCompatActivity {
 
             }
         });
+        binding.arrowDeptbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+
+                if (depthiddenlinear.getVisibility() == View.VISIBLE) {
+
+
+                    depthiddenlinear.setVisibility(View.GONE);
+                    binding.arrowDeptbutton.setImageResource(R.drawable.right_arrow);
+
+                } else {
+
+                    depthiddenlinear.setVisibility(View.VISIBLE);
+                    binding.arrowDeptbutton.setImageResource(R.drawable.down_arrow);
+
+                }
+            }
+        });
 
 
         // Linear layout hidden
@@ -460,4 +482,5 @@ public class addnew_deptdata extends AppCompatActivity {
         super.onStop();
         adapter.stopListening();
     }
+
 }

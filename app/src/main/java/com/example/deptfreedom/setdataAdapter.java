@@ -1,11 +1,14 @@
 package com.example.deptfreedom;
 
 
+import android.app.ProgressDialog;
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,12 +21,7 @@ import java.util.ArrayList;
 public class setdataAdapter extends FirebaseRecyclerAdapter<getdatamodel,setdataAdapter.viewholder> {
 
 
-    /**
-     * Initialize a {@link RecyclerView.Adapter} that listens to a Firebase query. See
-     * {@link FirebaseRecyclerOptions} for configuration options.
-     *
-     * @param options
-     */
+
     public setdataAdapter(@NonNull FirebaseRecyclerOptions<getdatamodel> options) {
         super(options);
     }
@@ -32,7 +30,6 @@ public class setdataAdapter extends FirebaseRecyclerAdapter<getdatamodel,setdata
     @Override
     public viewholder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.dept_cards,parent,false);
-
         return new viewholder(view);
     }
 
@@ -42,6 +39,14 @@ public class setdataAdapter extends FirebaseRecyclerAdapter<getdatamodel,setdata
         holder.name.setText(model.getDeptname());
         holder.sbalance.setText(model.getSbalance());
         holder.remdata.setText(model.getPaydate());
+        holder.itemView.setBackgroundColor(model.isIsselect() ? Color.CYAN:Color.TRANSPARENT);
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                model.setIsselect(!model.isIsselect());
+                holder.itemView.setBackgroundColor(model.isIsselect() ? Color.RED : Color.TRANSPARENT);
+            }
+        });
 
     }
 

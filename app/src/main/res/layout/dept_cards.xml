@@ -11,10 +11,10 @@
 
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
+        android:layout_marginStart="20dp"
         android:layout_marginTop="8dp"
 
-        android:layout_marginEnd="10dp"
+        android:layout_marginEnd="20dp"
         android:layout_marginBottom="8dp"
         android:orientation="vertical">
 
@@ -158,8 +158,9 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="15dp"
                     android:layout_marginTop="5dp"
+                    android:gravity="center"
                     android:layout_marginBottom="5dp">
 
                     <LinearLayout
@@ -170,7 +171,7 @@
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
                             android:layout_marginStart="10dp"
                             android:text="PAYOFF PROGRESS:"
                             android:textColor="#514A4A"
@@ -181,14 +182,13 @@
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-
                         android:layout_alignParentRight="true"
                         android:gravity="right">
 
                         <TextView
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginEnd="1dp"
+                            android:layout_height="match_parent"
+                            android:layout_marginEnd="2dp"
                             android:text="0%"
                             android:textColor="@android:color/holo_blue_bright"
                             android:textSize="9sp" />
@@ -197,7 +197,9 @@
                             android:id="@+id/progressBar"
                             style="?android:attr/progressBarStyleHorizontal"
                             android:layout_width="100dp"
-                            android:layout_height="10dp"
+                            android:paddingTop="3dp"
+                            android:paddingBottom="3dp"
+                            android:layout_height="match_parent"
                             android:progressDrawable="@drawable/progressbarbg"
                             android:layout_marginEnd="15dp"
                              />

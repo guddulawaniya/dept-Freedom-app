@@ -4,9 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable-v24/add_sign_icon.xml" value="0.1485" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable-v24/balance.xml" value="0.1585" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable-v24/box_content.xml" value="0.1585" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable-v24/box_heading.xml" value="0.1585" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable-v24/inputround.xml" value="0.1485" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable-v24/payment_remaining_plus_icon.xml" value="0.1585" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable-v24/strategy_card.xml" value="0.1485" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable/google.xml" value="0.1485" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable/progressbarbg.xml" value="0.1585" />
@@ -18,7 +20,12 @@
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/dept_cards.xml" value="0.264" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/dept_payment_method.xml" value="0.25" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/list_item.xml" value="0.25" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/one_time_payment.xml" value="0.25" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/payoff_plan.xml" value="0.25" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/payoff_plan_list.xml" value="0.25" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/payoff_summery.xml" value="0.25" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/payoffsummary.xml" value="0.25" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/strategy.xml" value="0.25" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/toolbar.xml" value="0.25" />
       </map>
     </option>

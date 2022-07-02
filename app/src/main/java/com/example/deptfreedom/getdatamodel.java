@@ -7,6 +7,15 @@ public class getdatamodel {
     {
 
     }
+    boolean isselect =false;
+
+    public boolean isIsselect() {
+        return isselect;
+    }
+
+    public void setIsselect(boolean isselect) {
+        this.isselect = isselect;
+    }
 
     String deptname,sbalance,mpayment,apr,category,paydate,remdate,setMesaageId;
 
