@@ -3,18 +3,18 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:orientation="vertical"
-    android:background="@drawable/background"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
+    android:orientation="vertical"
     tools:context=".addnew_deptdata">
 
-    <include layout="@layout/toolbar"/>
+    <include layout="@layout/toolbar" />
 
     <androidx.drawerlayout.widget.DrawerLayout
+        android:id="@+id/drawer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:openDrawer="end"
-        android:id="@+id/drawer">
+        tools:openDrawer="end">
 
 
         <ScrollView
@@ -24,13 +24,14 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                tools:context=".addnew_deptdata"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                tools:context=".addnew_deptdata">
 
                 <LinearLayout
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
                     <RelativeLayout
                         android:layout_width="match_parent"
                         android:layout_height="50dp"
@@ -50,33 +51,34 @@
 
                         <LinearLayout
                             android:layout_width="wrap_content"
-                            android:layout_alignParentRight="true"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
                             android:layout_marginEnd="12dp"
                             android:gravity="center">
 
-                        <Button
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:layout_marginEnd="6dp"
-                            android:text="Cancel"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
-                            android:textSize="10sp" />
+                            <Button
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:layout_marginEnd="6dp"
+                                android:text="Cancel"
+                                android:textColor="@color/white"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
 
-                        <Button
-                            android:id="@+id/savebtn"
-                            android:layout_width="wrap_content"
-                            android:layout_height="match_parent"
-                            android:text="Save"
-                            android:textStyle="bold"
-                            android:textColor="@color/white"
-                            android:textSize="10sp" />
+                            <Button
+                                android:id="@+id/savebtn"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="Save"
+                                android:textColor="@color/white"
+                                android:textSize="10sp"
+                                android:textStyle="bold" />
 
 
                         </LinearLayout>
 
                     </RelativeLayout>
+
                     <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
@@ -97,8 +99,8 @@
                             android:id="@+id/textView4"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:paddingTop="10dp"
                             android:gravity="center"
+                            android:paddingTop="10dp"
                             android:paddingBottom="10dp"
                             android:text="DEBT DETAILS"
                             android:textColor="@color/colorWhite"
@@ -107,6 +109,7 @@
 
                             />
                     </LinearLayout>
+
                     <LinearLayout
                         android:id="@+id/hiddenView_debtDetails"
                         android:layout_width="match_parent"
@@ -214,8 +217,8 @@
                                     android:ems="10"
                                     android:hint="e.g. 1234_"
                                     android:inputType="number"
-                                    android:padding="10dp"
                                     android:maxLength="8"
+                                    android:padding="10dp"
                                     android:textColor="#201919"
                                     android:textColorHint="#9E9797"
                                     android:textSize="14sp" />
@@ -270,8 +273,8 @@
                                     android:ems="10"
                                     android:hint="e.g. 1234_"
                                     android:inputType="number"
-                                    android:padding="8dp"
                                     android:maxLength="8"
+                                    android:padding="8dp"
                                     android:textColor="#201919"
                                     android:textColorHint="#9E9797"
                                     android:textSize="14sp" />
@@ -327,8 +330,8 @@
                                     android:ems="10"
                                     android:hint="e.g. 100%_"
                                     android:inputType="number"
-                                    android:padding="8dp"
                                     android:maxLength="3"
+                                    android:padding="8dp"
                                     android:textColor="#201919"
                                     android:textColorHint="#9E9797"
                                     android:textSize="14sp" />
@@ -391,8 +394,8 @@
                                     android:background="@drawable/inputround"
                                     android:paddingStart="10dp"
                                     android:paddingTop="0dp"
-                                    android:text="select Card"
                                     android:paddingBottom="0dp"
+                                    android:text="select Card"
                                     android:textColor="#201919"
                                     android:textColorHint="#9E9797"
                                     android:textSize="14sp" />
@@ -479,8 +482,8 @@
                                     android:background="@drawable/inputround"
                                     android:paddingStart="10dp"
                                     android:paddingTop="0dp"
-                                    android:text="select date"
                                     android:paddingBottom="0dp"
+                                    android:text="select date"
                                     android:textColor="#201919"
                                     android:textColorHint="#9E9797"
                                     android:textSize="14sp" />
@@ -603,19 +606,13 @@
                 </LinearLayout>
 
 
-
-
-
-
-
-
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
                     android:background="#17D540"
                     android:orientation="horizontal">
+
                     <ImageButton
                         android:id="@+id/arrow_deptbutton"
                         android:layout_width="wrap_content"
@@ -640,22 +637,23 @@
 
 
                     <ImageButton
-                        android:layout_width="40dp"
                         android:id="@+id/deptnames"
+                        android:layout_width="40dp"
                         android:layout_height="match_parent"
-                        android:padding="8dp"
                         android:layout_marginRight="5dp"
+                        android:padding="8dp"
                         app:srcCompat="@drawable/add_sign_icon" />
                 </LinearLayout>
 
                 <LinearLayout
                     android:id="@+id/depthiddenlinear"
                     android:layout_width="match_parent"
-                    android:orientation="vertical"
-                    android:layout_height="match_parent">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
                     <androidx.recyclerview.widget.RecyclerView
-                        android:layout_width="match_parent"
                         android:id="@+id/deptnamerecyclerview"
+                        android:layout_width="match_parent"
                         android:layout_height="match_parent">
 
                     </androidx.recyclerview.widget.RecyclerView>
@@ -663,13 +661,12 @@
                 </LinearLayout>
 
 
-
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
                     android:layout_marginBottom="15dp"
                     android:background="#17D540"
-                    android:layout_marginTop="15dp"
                     android:orientation="horizontal"
                     android:weightSum="6">
 
@@ -693,38 +690,54 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:orientation="vertical">
-                    <include layout="@layout/payoff_plan_list"/>
+
+                    <include layout="@layout/payoff_plan_list" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <include layout="@layout/strategy"/>
+
+                    <include layout="@layout/strategy" />
 
                 </LinearLayout>
+
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent">
-                    <include layout="@layout/dept_payment_method"/>
 
-                </LinearLayout>   <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent">
-                <include layout="@layout/payoff_summery"/>
+                    <include layout="@layout/dept_payment_method" />
 
-            </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <include layout="@layout/payoff_summery" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="30dp"
+                    >
+                    <include layout="@layout/resourses_file"/>
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
 
 
-
         <com.google.android.material.navigation.NavigationView
+            android:id="@+id/navmenu"
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
-            android:id="@+id/navmenu"
             android:layout_gravity="right">
 
-            <include layout="@layout/card_view"/>
+            <include layout="@layout/card_view" />
 
         </com.google.android.material.navigation.NavigationView>
 
