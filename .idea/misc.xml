@@ -10,13 +10,16 @@
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable-v24/inputround.xml" value="0.1485" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable-v24/payment_remaining_plus_icon.xml" value="0.1585" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable-v24/strategy_card.xml" value="0.1485" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable-v24/walletbc.xml" value="0.2105" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable/google.xml" value="0.1485" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable/progressbarbg.xml" value="0.1585" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable/resoursecornerround.xml" value="0.2105" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/activity_addnew_deptdata.xml" value="0.2359375" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/activity_log_in.xml" value="0.21195652173913043" />
-        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/activity_sign_up.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/card_view.xml" value="0.25" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/custom_dialogbox.xml" value="0.25" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/dept_cards.xml" value="0.264" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/dept_payment_method.xml" value="0.25" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/list_item.xml" value="0.25" />
@@ -25,6 +28,7 @@
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/payoff_plan_list.xml" value="0.25" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/payoff_summery.xml" value="0.25" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/payoffsummary.xml" value="0.25" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/resourses_file.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/strategy.xml" value="0.25" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/toolbar.xml" value="0.25" />
       </map>

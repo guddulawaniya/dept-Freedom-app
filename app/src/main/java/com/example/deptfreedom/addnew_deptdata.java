@@ -11,6 +11,7 @@ import android.app.DatePickerDialog;
 import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
@@ -64,7 +65,7 @@ public class addnew_deptdata extends AppCompatActivity {
     ArrayList<getdatamodel> list;
     RecyclerView deptnamerecyclerView;
     ImageButton arrow,arrow2,arrow3,arrow4;
-    ImageView strategyplusbutton;
+    ImageView youtubearrow,instarrow;
     LinearLayout hiddenView,hiddenView2,hiddenView4,hiddenView3,hiddenView_debtDetails,depthiddenlinear;
     ActivityAddnewDeptdataBinding binding;
     // Syntax of declaration of variable
@@ -106,6 +107,8 @@ public class addnew_deptdata extends AppCompatActivity {
         arrow3 = findViewById(R.id.arrow_button3);
         arrow4 = findViewById(R.id.arrow_button4);
         Button logout = findViewById(R.id.logout);
+        instarrow = findViewById(R.id.instarrow);
+        youtubearrow = findViewById(R.id.youtubearrow);
         LinearLayout hiddenView = findViewById(R.id.hidden_view),hiddenView2 = findViewById(R.id.hidden_view2),
                 hiddenView3 = findViewById(R.id.hidden_view3),hiddenView4 = findViewById(R.id.hidden_view4);
 
@@ -127,6 +130,23 @@ public class addnew_deptdata extends AppCompatActivity {
         EditText remdate = findViewById(R.id.remdate);
         useremailid = findViewById(R.id.useremail_id);
         hiddenView_debtDetails.setVisibility(View.VISIBLE);
+
+
+        instarrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.moneyexpert.com/credit-cards/apr-explained/"));
+                startActivity(intent);
+            }
+        });
+
+        youtubearrow.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://credit.org/blog/an-insiders-guide-on-how-to-get-out-of-debt-fast/"));
+                startActivity(intent);
+            }
+        });
 
 
         logout.setOnClickListener(new View.OnClickListener() {
