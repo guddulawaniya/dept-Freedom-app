@@ -47,7 +47,11 @@
                     android:orientation="horizontal">
 
                     <ImageView
+<<<<<<< HEAD
                         android:id="@+id/youtubeicon"
+=======
+                        android:id="@+id/imageView5"
+>>>>>>> origin/master
                         android:layout_width="70dp"
                         android:layout_height="60dp"
                         android:layout_marginStart="5dp"
@@ -60,7 +64,11 @@
                         app:srcCompat="@drawable/youtube" />
 
                     <TextView
+<<<<<<< HEAD
                         android:id="@+id/gettstartvideo"
+=======
+                        android:id="@+id/textView24"
+>>>>>>> origin/master
                         android:layout_width="wrap_content"
                         android:layout_height="29dp"
                         android:text="Getting Started Video"
@@ -68,6 +76,7 @@
                         android:textSize="20sp"
                         android:textStyle="bold"
                         app:layout_constraintBottom_toBottomOf="parent"
+<<<<<<< HEAD
                         app:layout_constraintEnd_toStartOf="@+id/youtubearrow"
                         app:layout_constraintHorizontal_bias="0.5"
                         app:layout_constraintStart_toEndOf="@+id/youtubeicon"
@@ -75,6 +84,15 @@
 
                     <ImageView
                         android:id="@+id/youtubearrow"
+=======
+                        app:layout_constraintEnd_toStartOf="@+id/imageView6"
+                        app:layout_constraintHorizontal_bias="0.5"
+                        app:layout_constraintStart_toEndOf="@+id/imageView5"
+                        app:layout_constraintTop_toTopOf="parent" />
+
+                    <ImageView
+                        android:id="@+id/imageView6"
+>>>>>>> origin/master
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_marginEnd="10dp"
@@ -147,7 +165,11 @@
                     </LinearLayout>
 
                     <ImageView
+<<<<<<< HEAD
                         android:id="@+id/instarrow"
+=======
+                        android:id="@+id/imageVie"
+>>>>>>> origin/master
                         android:layout_width="25dp"
                         android:layout_height="25dp"
                         android:layout_marginEnd="10dp"
