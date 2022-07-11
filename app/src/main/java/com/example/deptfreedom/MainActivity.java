@@ -4,10 +4,13 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.drawerlayout.widget.DrawerLayout;
 
+import android.app.Dialog;
+import android.app.ProgressDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -32,7 +35,9 @@ public class MainActivity extends AppCompatActivity {
     Button logout;
     ImageButton arrow;
     ImageButton arrow2;
+    DatabaseReference mDatabase;
     ImageButton arrow3;
+    Dialog changepasswordDialog;
     ImageButton arrow4;
     ImageView back;
     LinearLayout hiddenView;
@@ -73,6 +78,11 @@ public class MainActivity extends AppCompatActivity {
         hiddenView3 = findViewById(R.id.hidden_view3);
         hiddenView4 = findViewById(R.id.hidden_view4);
         useremailid = findViewById(R.id.useremail_id);
+        Button passconformbutton = findViewById(R.id.passconformbutton);
+        TextView currentpass = findViewById(R.id.currentpass);
+        TextView newpass = findViewById(R.id.newpass);
+        TextView conform = findViewById(R.id.conformpass);
+        mDatabase = FirebaseDatabase.getInstance().getReference();
 
         ArrayAdapter<String> adapter = new ArrayAdapter(MainActivity.this, R.layout.list_item, currency_symbols);
         currencySysmbolDropdown.setAdapter(adapter);
@@ -92,7 +102,64 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+        changepasswordDialog =  new Dialog(this);
+        changepasswordDialog.setContentView(R.layout.passwordchangedialogbox);
+        changepasswordDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        changepasswordDialog.setCancelable(false);
+        Button changebuttonok = changepasswordDialog.findViewById(R.id.changepassokaybubttn);
 
+
+        changebuttonok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changepasswordDialog.dismiss();
+            }
+        });
+
+        passconformbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                if (currentpass.getText().toString().equals(mDatabase.child("Users").child(FirebaseAuth.getInstance().getUid()).child("password")))
+//                {
+                if (newpass.getText().toString().length() <= 6 && conform.getText().toString().length() <= 6) {
+                    newpass.setError("Weak Password");
+                    newpass.requestFocus();
+                } else {
+
+
+                    if (!newpass.getText().toString().isEmpty() && !conform.getText().toString().isEmpty()) {
+                        if (newpass.getText().toString().equals(conform.getText().toString())) {
+                            mDatabase.child("Users").child(FirebaseAuth.getInstance().getUid()).child("password").setValue(newpass.getText().toString());
+                            currentpass.setText("");
+                            newpass.setText("");
+                            conform.setText("");
+                            currentpass.requestFocus();
+                            changepasswordDialog.show();
+
+                        } else {
+                            newpass.setError("Not Match password");
+                            newpass.requestFocus();
+                            conform.setError("Not Match Password");
+                        }
+
+                    } else if (newpass.getText().toString().isEmpty()) {
+                        newpass.setError("Invalid Password");
+                        newpass.requestFocus();
+
+                    } else if (conform.getText().toString().isEmpty()) {
+                        conform.setError("Invalid password");
+                        conform.requestFocus();
+                    }
+                }
+
+            }
+//                else
+//                {
+//                    Toast.makeText(addnew_deptdata.this, "Current Password is not Match", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+        });
 
 
         menuimage.setOnClickListener(new View.OnClickListener() {

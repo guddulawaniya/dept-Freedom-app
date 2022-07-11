@@ -12,7 +12,6 @@ import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.net.Uri;
-import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.Gravity;
 import android.view.View;
@@ -27,10 +26,15 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.deptfreedom.databinding.ActivityAddnewDeptdataBinding;
 import com.firebase.ui.database.FirebaseRecyclerOptions;
+import com.google.firebase.auth.AuthCredential;
+import com.google.firebase.auth.EmailAuthCredential;
+import com.google.firebase.auth.EmailAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -45,34 +49,32 @@ import java.util.Locale;
 public class addnew_deptdata extends AppCompatActivity {
 
 
-
-
     ImageButton arrow_debtDetails;
     DatabaseReference mDatabase;
-    AutoCompleteTextView actv_categoryDropdown,reninderDropDown;
+    AutoCompleteTextView actv_categoryDropdown, reninderDropDown;
     DrawerLayout drawerLayout;
-    Dialog dialog;
+    Dialog dialog, changepasswordDialog;
     Spinner selectpayofforder;
-    ImageView menuimage,arrow_deptbutton;
+    ImageView menuimage, arrow_deptbutton;
     TextView useremailid;
     ProgressDialog Loading;
-    String userchildid ="1";
+    String userchildid = "1";
     AutoCompleteTextView currencySysmbolDropdown;
-    Button close;
+    Button close, changebuttonok;
     setdataAdapter adapter;
-    Button okay ;
+    Button okay;
     ProgressBar progressBar;
     ArrayList<getdatamodel> list;
     RecyclerView deptnamerecyclerView;
-    ImageButton arrow,arrow2,arrow3,arrow4;
-    ImageView youtubearrow,instarrow;
-    LinearLayout hiddenView,hiddenView2,hiddenView4,hiddenView3,hiddenView_debtDetails,depthiddenlinear;
+    ImageButton arrow, arrow2, arrow3, arrow4;
+    ImageView youtubearrow, instarrow;
+    LinearLayout hiddenView, hiddenView2, hiddenView4, hiddenView3, hiddenView_debtDetails, depthiddenlinear;
     ActivityAddnewDeptdataBinding binding;
     // Syntax of declaration of variable
     final Calendar myCalendar = Calendar.getInstance();
     String[] categories = {"Credit Card", "Auto Loan", "Student Loan", "Medicine Loan", "Mortgage", "Personal Loan", "TAXES", "Utilites anad Bills", "Overdraft", "Others"};
     String[] reminder = {"5 days ", "10 days ", "15 days ", "20 days ", "25 days ", "30 days "};
-    String[] dept_details = new String[]{"APR High to Low (avalanche)","APR Low to High (avalanche)"};
+    String[] dept_details = new String[]{"APR High to Low (avalanche)", "APR Low to High (avalanche)"};
     String[] currency_symbols = {
             "$",
             "₹",
@@ -87,11 +89,11 @@ public class addnew_deptdata extends AppCompatActivity {
         setContentView(binding.getRoot());
 
 
-
         Loading = new ProgressDialog(addnew_deptdata.this);
         Loading.setTitle("Please Wait");
         Loading.setMessage("Data will be Add in app");
         mDatabase = FirebaseDatabase.getInstance().getReference();
+
         actv_categoryDropdown = findViewById(R.id.category);
         reninderDropDown = findViewById(R.id.remdate);
         selectpayofforder = findViewById(R.id.selectpayofforder);
@@ -109,15 +111,78 @@ public class addnew_deptdata extends AppCompatActivity {
         Button logout = findViewById(R.id.logout);
         instarrow = findViewById(R.id.instarrow);
         youtubearrow = findViewById(R.id.youtubearrow);
-        LinearLayout hiddenView = findViewById(R.id.hidden_view),hiddenView2 = findViewById(R.id.hidden_view2),
-                hiddenView3 = findViewById(R.id.hidden_view3),hiddenView4 = findViewById(R.id.hidden_view4);
-
+        LinearLayout hiddenView = findViewById(R.id.hidden_view), hiddenView2 = findViewById(R.id.hidden_view2),
+                hiddenView3 = findViewById(R.id.hidden_view3), hiddenView4 = findViewById(R.id.hidden_view4);
         list = new ArrayList<>();
-        //list.add(new getdatamodel("bill","500","50","3","student","02/06/2022","04/02/2020"));
+        TextView currentpass = findViewById(R.id.currentpass);
+        TextView newpass = findViewById(R.id.newpass);
+        TextView conform = findViewById(R.id.conformpass);
+        Button passconformbutton = findViewById(R.id.passconformbutton);
 
 
+        changepasswordDialog = new Dialog(this);
+        changepasswordDialog.setContentView(R.layout.passwordchangedialogbox);
+        changepasswordDialog.getWindow().setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+        changepasswordDialog.setCancelable(false);
+        changebuttonok = changepasswordDialog.findViewById(R.id.changepassokaybubttn);
+
+
+        changebuttonok.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                changepasswordDialog.dismiss();
+            }
+        });
+
+
+        passconformbutton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+//                if (currentpass.getText().toString().equals(mDatabase.child("Users").child(FirebaseAuth.getInstance().getUid()).child("password")))
+//                {
+                if (newpass.getText().toString().length() <= 6 && conform.getText().toString().length() <= 6) {
+                    newpass.setError("Weak Password");
+                    newpass.requestFocus();
+                } else {
+
+
+                    if (!newpass.getText().toString().isEmpty() && !conform.getText().toString().isEmpty()) {
+                        Loading.show();
+                        if (newpass.getText().toString().equals(conform.getText().toString())) {
+                            mDatabase.child("Users").child(FirebaseAuth.getInstance().getUid()).child("password").setValue(newpass.getText().toString());
+                            currentpass.setText("");
+                            newpass.setText("");
+                            conform.setText("");
+                            currentpass.requestFocus();
+                            changepasswordDialog.show();
+
+                        } else {
+                            newpass.setError("Not Match password");
+                            newpass.requestFocus();
+                            conform.setError("Not Match Password");
+                        }
+
+                        Loading.dismiss();
+
+                    } else if (newpass.getText().toString().isEmpty()) {
+                        newpass.setError("Invalid Password");
+                        newpass.requestFocus();
+
+                    } else if (conform.getText().toString().isEmpty()) {
+                        conform.setError("Invalid password");
+                        conform.requestFocus();
+                    }
+                }
+
+            }
+//                else
+//                {
+//                    Toast.makeText(addnew_deptdata.this, "Current Password is not Match", Toast.LENGTH_SHORT).show();
+//                }
+//            }
+        });
         depthiddenlinear.setVisibility(View.VISIBLE);
-
 
 
         EditText name = findViewById(R.id.name);
@@ -152,7 +217,7 @@ public class addnew_deptdata extends AppCompatActivity {
         logout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(addnew_deptdata.this,SignUp_Activity.class);
+                Intent intent = new Intent(addnew_deptdata.this, SignUp_Activity.class);
                 startActivity(intent);
                 finish();
             }
@@ -200,10 +265,10 @@ public class addnew_deptdata extends AppCompatActivity {
 
         deptnamerecyclerView = findViewById(R.id.deptnamerecyclerview);
         deptnamerecyclerView.setLayoutManager(new LinearLayoutManager(this));
-        FirebaseRecyclerOptions<getdatamodel> list = new  FirebaseRecyclerOptions.Builder<getdatamodel>().setQuery(FirebaseDatabase.getInstance()
-                .getReference().child("Users data").child(FirebaseAuth.getInstance().getUid()),getdatamodel.class).build();
+        FirebaseRecyclerOptions<getdatamodel> list = new FirebaseRecyclerOptions.Builder<getdatamodel>().setQuery(FirebaseDatabase.getInstance()
+                .getReference().child("Users data").child(FirebaseAuth.getInstance().getUid()), getdatamodel.class).build();
 
-        adapter= new setdataAdapter(list);
+        adapter = new setdataAdapter(list);
         deptnamerecyclerView.setAdapter(adapter);
 //        adapter = new setdataAdapter(list,this);
 //        deptnamerecyclerView.setAdapter(adapter);
@@ -479,7 +544,7 @@ public class addnew_deptdata extends AppCompatActivity {
         String userId = FirebaseAuth.getInstance().getUid();
 
         mDatabase.child("Users data").child(userId).child(userchildid).setValue(user);
-        userchildid = userchildid+1;
+        userchildid = userchildid + 1;
 
     }
 

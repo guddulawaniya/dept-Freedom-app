@@ -19,21 +19,17 @@
 
             <LinearLayout
                 android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 android:layout_marginStart="8dp"
-                android:orientation="vertical"
-                android:layout_height="wrap_content">
+                android:orientation="vertical">
 
 
-
-
-
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Logged in as:"
-                android:textSize="18sp"
-                android:textColor="@color/white"
-                />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:text="Logged in as:"
+                    android:textColor="@color/white"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/useremail_id"
@@ -43,23 +39,24 @@
                     android:text="Tbvcsoft@gmail.com"
                     android:textColor="#D1491F"
                     android:textSize="15sp" />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_marginTop="15dp"
-                android:layout_height="match_parent"
-                android:text="Pro Member"
-                android:textSize="15sp"
-                android:textColor="#C58D3C"
-                />
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_marginTop="5dp"
-                android:layout_height="match_parent"
-                android:text="see pro features"
-                android:textSize="15sp"
-                android:textColor="@color/white"
-                />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="15dp"
+                    android:text="Pro Member"
+                    android:textColor="#C58D3C"
+                    android:textSize="15sp" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_marginTop="5dp"
+                    android:text="see pro features"
+                    android:textColor="@color/white"
+                    android:textSize="15sp" />
             </LinearLayout>
+
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -379,39 +376,90 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:orientation="vertical"
-                android:visibility="gone">
+                android:visibility="gone"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:orientation="vertical"
+                    android:layout_height="match_parent">
+
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Current password"
+                        android:scrollbarSize="30dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:textColorHint="@color/hintcolor"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/white">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:id="@+id/currentpass"
+                            android:layout_height="match_parent"
+                            android:background="#767B97"
+                            android:inputType="textPassword"
+                            android:textSize="16dp" />
 
 
-                <EditText
-                    android:id="@+id/editTextTextPassword"
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="New Password"
+                        android:scrollbarSize="30dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:textColorHint="@color/hintcolor"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/white">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:id="@+id/newpass"
+                            android:layout_height="match_parent"
+                            android:background="#767B97"
+                            android:inputType="textPassword"
+                            android:textSize="16dp" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                    <com.google.android.material.textfield.TextInputLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:hint="Confirm New Password"
+                        android:scrollbarSize="30dp"
+                        android:layout_marginStart="20dp"
+                        android:layout_marginEnd="20dp"
+                        android:textColorHint="@color/hintcolor"
+                        app:hintTextAppearance="@style/TextAppearance.AppCompat.Small"
+                        app:passwordToggleEnabled="true"
+                        app:passwordToggleTint="@color/white">
+
+                        <com.google.android.material.textfield.TextInputEditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="#767B97"
+                            android:id="@+id/conformpass"
+                            android:inputType="textPassword"
+                            android:textSize="16dp" />
+
+
+                    </com.google.android.material.textfield.TextInputLayout>
+                </LinearLayout>
+                <Button
+                    android:id="@+id/passconformbutton"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:ems="10"
-                    android:hint="Current Password"
-                    android:inputType="textPassword"
-                    android:textColorHint="@color/colorWhite" />
-
-                <EditText
-                    android:id="@+id/editTextTextPassword2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:ems="10"
-                    android:hint="New Password"
-                    android:inputType="textPassword"
-                    android:textColorHint="@color/colorWhite" />
-
-                <EditText
-                    android:id="@+id/editTextTextPassword3"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="20dp"
-                    android:ems="10"
-                    android:hint="Confirm New Password"
-                    android:inputType="textPassword"
-                    android:textColorHint="@color/colorWhite" />
+                    android:layout_gravity="center"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="15dp"
+                    android:gravity="center"
+                    android:text="Conform" />
             </LinearLayout>
 
             <LinearLayout
@@ -476,7 +524,6 @@
 
                 android:layout_marginBottom="100dp"
                 android:text="Close" />
-
 
 
         </LinearLayout>
