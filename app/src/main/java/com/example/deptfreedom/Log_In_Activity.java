@@ -31,6 +31,7 @@ public class Log_In_Activity extends AppCompatActivity {
         final EditText useremail = findViewById(R.id.email);
         final EditText password = findViewById(R.id.mypass);
         TextView signuplink = findViewById(R.id.signUpLink);
+        TextView forgetlink = findViewById(R.id.forgetlink);
         progressDialog = new ProgressDialog(Log_In_Activity.this);
         progressDialog.setTitle("Login");
         progressDialog.setMessage("Login your account");
@@ -44,6 +45,13 @@ public class Log_In_Activity extends AppCompatActivity {
                 finish();
             }
         });
+        forgetlink.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(Log_In_Activity.this,Forget_password.class));
+            }
+        });
+
 
         btnlogin.setOnClickListener(new View.OnClickListener() {
             @Override

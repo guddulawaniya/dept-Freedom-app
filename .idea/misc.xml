@@ -15,9 +15,11 @@
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable/progressbarbg.xml" value="0.1585" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/drawable/resoursecornerround.xml" value="0.2105" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/activity_addnew_deptdata.xml" value="0.2359375" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/activity_forget_password.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/activity_log_in.xml" value="0.21195652173913043" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/activity_main.xml" value="0.264" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/activity_sign_up.xml" value="0.21195652173913043" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/activity_webview.xml" value="0.2427536231884058" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/card_view.xml" value="0.25" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/custom_dialogbox.xml" value="0.25" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/dept_cards.xml" value="0.264" />
@@ -32,6 +34,7 @@
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/resourses_file.xml" value="0.24895833333333334" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/strategy.xml" value="0.25" />
         <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/toolbar.xml" value="0.25" />
+        <entry key="..\:/Users/guddu/AndroidStudioProjects/deptFreedom/app/src/main/res/layout/youtubewebview.xml" value="0.2427536231884058" />
       </map>
     </option>
   </component>

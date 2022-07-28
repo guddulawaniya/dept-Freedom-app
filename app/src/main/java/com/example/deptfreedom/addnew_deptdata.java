@@ -200,7 +200,9 @@ public class addnew_deptdata extends AppCompatActivity {
         instarrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://www.moneyexpert.com/credit-cards/apr-explained/"));
+                Intent intent = new Intent(addnew_deptdata.this,webview_Activity.class);
+                String link = "https://www.moneyexpert.com/credit-cards/apr-explained/";
+                intent.putExtra("link",link);
                 startActivity(intent);
             }
         });
@@ -208,7 +210,9 @@ public class addnew_deptdata extends AppCompatActivity {
         youtubearrow.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://credit.org/blog/an-insiders-guide-on-how-to-get-out-of-debt-fast/"));
+                Intent intent = new Intent(addnew_deptdata.this,webview_Activity.class);
+                String link = "https://credit.org/blog/an-insiders-guide-on-how-to-get-out-of-debt-fast/";
+                intent.putExtra("link",link);
                 startActivity(intent);
             }
         });

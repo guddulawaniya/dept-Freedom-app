@@ -13,36 +13,33 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DeptFreedom"
         tools:targetApi="31">
-
-        <activity android:name=".splash_screen"
+        <activity
+            android:name=".webview_Activity"
+            android:exported="false" />
+        <activity
+            android:name=".Forget_password"
+            android:exported="false" />
+        <activity
+            android:name=".splash_screen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
-
         </activity>
         <activity
             android:name=".addnew_deptdata"
-            android:exported="true" >
-
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".Log_In_Activity"
             android:exported="false" />
         <activity
             android:name=".SignUp_Activity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
         <activity
             android:name=".MainActivity"
-            android:exported="true">
-
-        </activity>
+            android:exported="true" />
     </application>
 
 </manifest>
